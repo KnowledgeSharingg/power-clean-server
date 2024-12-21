@@ -3,8 +3,6 @@ import jakarta.persistence.Table
 import jakarta.persistence.Column
 
 // TODO: Value Object
-// TODO: Relation mapping
-
 @Entity
 @Table(name = "account")
 class Account(
