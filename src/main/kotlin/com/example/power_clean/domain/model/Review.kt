@@ -6,7 +6,6 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.ForeignKey
 import jakarta.persistence.ConstraintMode
 
-// TODO: Value Object
 @Entity
 @Table(name = "review")
 class Review(

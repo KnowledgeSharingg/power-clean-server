@@ -5,9 +5,10 @@ import jakarta.persistence.OneToOne
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ForeignKey
 import jakarta.persistence.ConstraintMode
+import jakarta.persistence.Embedded
 import org.hibernate.mapping.Constraint
+import AuthorInfo
 
-// TODO: Value Object
 @Entity
 @Table(name = "book")
 class Book(
@@ -17,8 +18,11 @@ class Book(
     @Column(name="content", nullable = false)
     var content: String,
 
-    @Column(name="author", nullable = false)
-    var author: String,
+    @Column(name="link", nullable = false)
+    var link: String,
+
+    @Embedded
+    var authorInfo: AuthorInfo,
 
     @Column(name="post_id", nullable = false)
     var postId: Long,
