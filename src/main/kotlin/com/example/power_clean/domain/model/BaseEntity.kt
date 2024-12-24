@@ -1,14 +1,16 @@
 import java.time.LocalDateTime
+import java.util.UUID
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.MappedSuperclass
-import org.springframework.data.annotation.Id 
+import org.springframework.data.annotation.Id
+import com.fasterxml.uuid.Generators 
 
 @MappedSuperclass 
 open class BaseEntity {
+    // TODO: UUID v7 적용 , https://0soo.tistory.com/177
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    var id: UUID = Generators.timeBasedEpochGenerator().generate()
     var createdAt: LocalDateTime = LocalDateTime.now()
     var updatedAt: LocalDateTime = LocalDateTime.now()
     var deletedAt: LocalDateTime? = null
