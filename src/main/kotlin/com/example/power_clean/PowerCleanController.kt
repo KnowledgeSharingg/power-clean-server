@@ -1,4 +1,4 @@
-
+package com.example.power_clean
 
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.GetMapping
