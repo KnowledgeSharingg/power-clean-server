@@ -1,19 +1,38 @@
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class AccountTest {
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
 
-    @Test
-    fun testAccountCreation() {
-        // Create a sample PersonalInfo object
-        val personalInfo = PersonalInfo("lim", "960707",  "01012341234", "male")
+class AccountTest : BehaviorSpec({
+    Given("Account") {
+        val mockedPersonalInfo = mockk<PersonalInfo>()
+        val account = Account("test@example.com", "password123", mockedPersonalInfo)
 
-        // Create an Account object
-        val account = Account("test@example.com", "password123", personalInfo)
+        When("getting the email") {
+            Then("it should return the email") {
+                account.email shouldBe "test@example.com"
+            }
+        }
 
-        // Perform assertions to verify the account properties
-        assertEquals("test@example.com", account.email)
-        assertEquals("password123", account.password)
-        assertEquals(personalInfo, account.personalInfo)
+        When("getting the password") {
+            Then("it should return the password") {
+                account.password shouldBe "password123"
+            }
+        }
+
+        When("getting the personal info") {
+            every { mockedPersonalInfo.name } returns "Mocked Name"
+            every { mockedPersonalInfo.dateOfBirth } returns "960707"
+            every { mockedPersonalInfo.phoneNumber } returns "01012341234"
+            every { mockedPersonalInfo.gender } returns "other"
+            val personalInfoResult = account.personalInfo
+
+            Then("it should return the mocked personal info") {
+                personalInfoResult shouldBe mockedPersonalInfo
+            }
+        }
     }
-}
+})

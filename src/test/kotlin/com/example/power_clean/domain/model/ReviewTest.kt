@@ -1,20 +1,42 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
 
-class ReviewTest {
+class ReviewTest : BehaviorSpec({
+    Given("a Review") {
+        val postId = 12345L
+        val post = mockk<Post>()
+        val review = Review("Sample Review Content", 5, postId, post)
 
-    @Test
-    fun testReviewCreation() {
-        // Create a sample Post object
-        val post = Post("Sample Title", "Sample Content", 12345L, 10)
+        When("getting the review properties") {
+            Then("the content should be correct") {
+                review.content shouldBe "Sample Review Content"
+            }
 
-        // Create a sample Review object
-        val review = Review("Sample Review Content", 5, 12345L, post)
+            Then("the rating should be correct") {
+                review.rating shouldBe 5
+            }
 
-        // Perform assertions to verify the review properties
-        assertEquals("Sample Review Content", review.content)
-        assertEquals(5, review.rating)
-        assertEquals(12345L, review.postId)
-        assertEquals(post, review.post)
+            Then("the postId should be correct") {
+                review.postId shouldBe postId
+            }
+
+            Then("the post should be correct") {
+                review.post shouldBe post
+            }
+        }
     }
-}
+
+    Given("a Review with a mocked Post") {
+        val postId = 12345L
+        val post = mockk<Post>()
+
+        When("creating a Review") {
+            Then("the post should be set correctly") {
+                val review = Review("Sample Review Content", 5, postId, post)
+                review.post shouldBe post
+            }
+        }
+    }
+})
