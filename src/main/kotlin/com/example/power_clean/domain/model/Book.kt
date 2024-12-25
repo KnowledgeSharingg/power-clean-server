@@ -9,6 +9,7 @@ import jakarta.persistence.Embedded
 import org.hibernate.mapping.Constraint
 import AuthorInfo
 
+
 @Entity
 @Table(name = "book")
 class Book(
