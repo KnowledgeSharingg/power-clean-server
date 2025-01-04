@@ -1,5 +1,7 @@
-import jakarta.persistence.Embeddable
+package com.example.power_clean.domain.value_object
+
 import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
 
 @Embeddable
 class AuthorInfo(
