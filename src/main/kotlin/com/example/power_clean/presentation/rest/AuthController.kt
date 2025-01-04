@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User
 class AuthController {
     
     @GetMapping("oauth2/login")
-    fun oauth2Login(@AuthenticationPrincipal principal: OAuth2User): Map<String, Any?> {
+    fun oauth2Login(@AuthenticationPrincipal principal: OAuth2User){
         // TODO: db 처리 및 jwt 토큰 발급.
         // return mapOf(
         //     "name" to principal.getAttribute<String>("name"),
