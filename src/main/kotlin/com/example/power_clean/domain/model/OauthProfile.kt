@@ -1,4 +1,4 @@
-
+package com.example.power_clean.domain.model
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
@@ -7,6 +7,8 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.FetchType
 import jakarta.persistence.OneToOne
 import java.util.UUID
+import jakarta.persistence.ForeignKey
+import jakarta.persistence.ConstraintMode
 
 @Entity
 @Table(name="oauth_profile")
@@ -27,7 +29,7 @@ class OauthProfile(
     var accountId: UUID,
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", nullable = false)
+    @JoinColumn(name = "account_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var account: Account? = null
 
 ): BaseEntity() 

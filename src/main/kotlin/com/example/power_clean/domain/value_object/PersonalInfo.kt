@@ -1,3 +1,5 @@
+package com.example.power_clean.domain.value_object
+
 import jakarta.persistence.Embeddable
 import jakarta.persistence.Column
 

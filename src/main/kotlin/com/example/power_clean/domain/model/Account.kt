@@ -1,8 +1,11 @@
+package com.example.power_clean.domain.model
+
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import jakarta.persistence.Column
 import jakarta.persistence.Embedded
 import PersonalInfo
+import com.example.power_clean.domain.model.OauthProfile
 
 @Entity
 @Table(name = "account")

@@ -1,3 +1,5 @@
+package com.example.power_clean.domain.model
+
 import java.time.LocalDateTime
 import java.util.UUID
 import jakarta.persistence.GeneratedValue

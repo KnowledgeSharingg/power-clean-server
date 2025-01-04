@@ -1,3 +1,6 @@
+package com.example.power_clean.domain.model
+
+
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import jakarta.persistence.Column
