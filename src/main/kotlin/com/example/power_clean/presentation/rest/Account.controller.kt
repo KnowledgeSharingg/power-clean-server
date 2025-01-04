@@ -7,8 +7,4 @@ import org.springframework.security.oauth2.core.user.OAuth2User
 
 @RestController("account")
 class AccountController {
-    @GetMapping("")
-    fun getAccount(@AuthenticationPrincipal principal: OAuth2User): Map<String, Any?> {
-        return mapOf("name" to principal.getAttribute<String>("name"))
-    }
 }
