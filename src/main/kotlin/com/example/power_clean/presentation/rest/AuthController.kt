@@ -1,3 +1,4 @@
+package com.example.power_clean.presentation.rest
 
 
 import org.springframework.web.bind.annotation.RestController
