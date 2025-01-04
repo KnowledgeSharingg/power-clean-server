@@ -30,6 +30,8 @@ class SecurityConfig {
                     // .userInfoEndpoint { userInfo ->
                     //     userInfo.userService(customOAuth2UserService()) // 사용자 정보 처리
                     // }
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/oauth2/login", true)
             }
 
         return http.build()
