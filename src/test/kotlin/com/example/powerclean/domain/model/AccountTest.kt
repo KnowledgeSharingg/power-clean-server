@@ -1,3 +1,6 @@
+package com.example.powerclean.domain.model
+
+import com.example.powerclean.domain.valueobject.PersonalInfo
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -6,19 +9,7 @@ import io.mockk.mockk
 class AccountTest : BehaviorSpec({
     Given("Account") {
         val mockedPersonalInfo = mockk<PersonalInfo>()
-        val account = Account("test@example.com", "password123", mockedPersonalInfo)
-
-        When("getting the email") {
-            Then("it should return the email") {
-                account.email shouldBe "test@example.com"
-            }
-        }
-
-        When("getting the password") {
-            Then("it should return the password") {
-                account.password shouldBe "password123"
-            }
-        }
+        val account = Account("nickname", mockedPersonalInfo)
 
         When("getting the personal info") {
             every { mockedPersonalInfo.name } returns "Mocked Name"
