@@ -1,5 +1,6 @@
 package com.example.powerclean.domain.model
 
+import com.example.powerclean.domain.valueobject.AuthorInfo
 import jakarta.persistence.Column
 import jakarta.persistence.ConstraintMode
 import jakarta.persistence.Embedded
