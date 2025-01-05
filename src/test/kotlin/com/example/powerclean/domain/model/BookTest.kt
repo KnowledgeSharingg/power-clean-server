@@ -1,3 +1,6 @@
+package com.example.powerclean.domain.model
+
+import com.example.powerclean.domain.valueobject.AuthorInfo
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
