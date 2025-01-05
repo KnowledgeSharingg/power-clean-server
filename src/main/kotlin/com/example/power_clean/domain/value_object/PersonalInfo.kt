@@ -6,14 +6,14 @@ import jakarta.persistence.Column
 @Embeddable
 class PersonalInfo(
     @Column(name = "name", nullable = false)
-    val name: String,
+    var name: String,
 
     @Column(name = "date_of_birth", nullable = true)
-    val dateOfBirth: String,
+    var dateOfBirth: String? = null,
 
     @Column(name = "phone_number", nullable = true)
-    val phoneNumber: String,
+    var phoneNumber: String? = null,
 
     @Column(name = "gender", nullable = true)
-    val gender: String
+    var gender: String? = null
 ){}
