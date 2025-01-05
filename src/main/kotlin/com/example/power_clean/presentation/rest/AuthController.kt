@@ -5,18 +5,11 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.security.oauth2.core.user.OAuth2User
+import com.example.power_clean.application.service.AuthService
 
 @RestController
-class AuthController {
+class AuthController(private val authService: AuthService) {
     
     @GetMapping("oauth2/login")
-    fun oauth2Login(@AuthenticationPrincipal principal: OAuth2User){
-        // TODO: db 처리 및 jwt 토큰 발급.
-        // return mapOf(
-        //     "name" to principal.getAttribute<String>("name"),
-        //     "login" to principal.getAttribute<String>("login"),
-        //     "email" to principal.getAttribute<String>("email"),
-        //     "avatar_url" to principal.getAttribute<String>("avatar_url")
-        // )
-    }
+    fun oauth2Login(@AuthenticationPrincipal principal: OAuth2User): String = authService.oauth2Login(principal)
 }

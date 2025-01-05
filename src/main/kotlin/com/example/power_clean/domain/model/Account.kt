@@ -4,18 +4,12 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import jakarta.persistence.Column
 import jakarta.persistence.Embedded
-import PersonalInfo
 import com.example.power_clean.domain.model.OauthProfile
+import com.example.power_clean.domain.value_object.PersonalInfo
 
 @Entity
 @Table(name = "account")
 class Account(
-    // @Column(name="email", nullable = false, unique = true)
-    // var email: String,
-
-    // @Column(name="password", nullable = false)
-    // var password: String,
-
     @Column(name="nickname", nullable = false)
     var nickname: String,
 
