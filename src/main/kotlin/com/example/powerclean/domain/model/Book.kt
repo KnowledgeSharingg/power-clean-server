@@ -21,8 +21,6 @@ class Book(
     var link: String,
     @Embedded
     var authorInfo: AuthorInfo,
-    @Column(name = "post_id", nullable = false)
-    var postId: Long,
     @OneToOne()
     @JoinColumn(name = "post_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var post: Post,

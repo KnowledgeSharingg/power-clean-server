@@ -15,8 +15,6 @@ class Review(
     var content: String,
     @Column(name = "rating", nullable = false)
     var rating: Int,
-    @Column(name = "post_id", nullable = false)
-    var postId: Long,
     @ManyToOne()
     @JoinColumn(name = "post_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var post: Post,
