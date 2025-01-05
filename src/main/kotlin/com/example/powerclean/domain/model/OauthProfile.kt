@@ -8,7 +8,6 @@ import jakarta.persistence.ForeignKey
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
-import java.util.UUID
 
 @Entity
 @Table(name = "oauth_profile")
@@ -21,8 +20,6 @@ class OauthProfile(
     var login: String,
     @Column(name = "profile_image_url", nullable = true)
     var profileImageUrl: String,
-    @Column(name = "account_id", nullable = false)
-    var accountId: UUID,
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var account: Account? = null,
