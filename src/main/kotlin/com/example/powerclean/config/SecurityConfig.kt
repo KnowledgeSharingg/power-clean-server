@@ -19,7 +19,16 @@ class SecurityConfig {
                 headers.frameOptions { it.disable() } // H2 콘솔 프레임 허용
             }
             .authorizeHttpRequests {
-                it.requestMatchers("/", "/error", "/webjars/**", "/h2-console/**", "/health-check").permitAll()
+                it.requestMatchers(
+                    "/",
+                    "/error",
+                    "/webjars/**",
+                    "/h2-console/**",
+                    "/health-check",
+                    "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**",
+                ).permitAll()
                 it.anyRequest().authenticated()
             }
             .exceptionHandling { exception ->
