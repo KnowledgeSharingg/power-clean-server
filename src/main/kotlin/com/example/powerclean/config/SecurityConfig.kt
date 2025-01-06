@@ -16,7 +16,7 @@ class SecurityConfig {
         http
             .csrf { it.disable() } // CSRF 보호 비활성화
             .authorizeHttpRequests {
-                it.requestMatchers("/", "/error", "/webjars/**").permitAll()
+                it.requestMatchers("/", "/error", "/webjars/**", "/h2-console/**", "/health-check").permitAll()
                 it.anyRequest().authenticated()
             }
             .exceptionHandling { exception ->
