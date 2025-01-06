@@ -8,6 +8,7 @@ import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 import java.util.UUID
 
+
 @Entity
 @Table(name = "post")
 class Post(
