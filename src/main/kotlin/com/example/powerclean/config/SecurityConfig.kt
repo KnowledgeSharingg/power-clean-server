@@ -15,6 +15,9 @@ class SecurityConfig {
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .csrf { it.disable() } // CSRF 보호 비활성화
+            .headers { headers ->
+                headers.frameOptions { it.disable() } // H2 콘솔 프레임 허용
+            }
             .authorizeHttpRequests {
                 it.requestMatchers("/", "/error", "/webjars/**", "/h2-console/**", "/health-check").permitAll()
                 it.anyRequest().authenticated()
