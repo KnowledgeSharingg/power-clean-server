@@ -79,7 +79,7 @@ class PostService(private val postRepository: PostRepository, private val bookRe
         page: Int,
         size: Int,
     ): GetPostListResDto {
-        val foundPosts: List<Post> = postRepository.findAll() ?: throw NotFoundException("Post not found")
+        val foundPosts: List<Post> = postRepository.findAll()
         return GetPostListResDto(
             postList =
                 foundPosts.map {
