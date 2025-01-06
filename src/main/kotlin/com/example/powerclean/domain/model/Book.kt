@@ -5,6 +5,7 @@ import jakarta.persistence.Column
 import jakarta.persistence.ConstraintMode
 import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
+import jakarta.persistence.FetchType
 import jakarta.persistence.ForeignKey
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
@@ -21,9 +22,7 @@ class Book(
     var link: String,
     @Embedded
     var authorInfo: AuthorInfo,
-    @Column(name = "post_id", nullable = false)
-    var postId: Long,
-    @OneToOne()
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var post: Post,
 ) : BaseEntity()

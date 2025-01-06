@@ -17,10 +17,10 @@ class AuthService(
         // TODO: jwt 토큰 발급.
         // TODO: 랜덤 닉네임 할당해주기.
 
-        val foundAccount =
-            accountRepository.findByName(
-                principal.getAttribute<String>("name") ?: throw IllegalArgumentException("name"),
-            )
+        val foundAccount = null
+        // accountRepository.findByName(
+        //     principal.getAttribute<String>("name") ?: throw IllegalArgumentException("name"),
+        // )
         if (foundAccount == null) {
             val savedAccount: Account =
                 accountRepository.save(
@@ -38,7 +38,7 @@ class AuthService(
                 )
             oauthProfileRepository.save(
                 OauthProfile(
-                    accountId = savedAccount.id,
+                    account = savedAccount,
                     email =
                         principal.getAttribute<String>("email") ?: throw IllegalArgumentException(
                             "email",
