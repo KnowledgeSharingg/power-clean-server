@@ -75,6 +75,7 @@ class PostService(private val postRepository: PostRepository, private val bookRe
         )
     }
 
+    // TODO: Paging.
     fun getPostList(
         page: Int,
         size: Int,
