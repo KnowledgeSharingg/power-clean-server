@@ -17,6 +17,7 @@ class Review(
     @Column(name = "rating", nullable = false)
     var rating: Int,
     // TODO: 주인 쪽에 cascade 설정 해도되나 ?
+    // BOOK과 POST 관계를 확인해보면, 주인이 아닌 POST 쪽에 cascade 설정이 되어있음.
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", foreignKey = ForeignKey(ConstraintMode.NO_CONSTRAINT))
     var post: Post,
