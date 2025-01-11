@@ -1,7 +1,7 @@
 package com.example.powerclean.presentation.dto
 
-import java.util.UUID
 import io.swagger.v3.oas.annotations.media.Schema
+import java.util.UUID
 
 data class CreatePostReqDto(
     @Schema(description = "포스트의 타이틀.", example = "포스트 타이틀!")
