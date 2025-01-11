@@ -10,7 +10,7 @@ class BookTest : BehaviorSpec({
         val authorInfo =
             AuthorInfo("John Doe", "960707", "01012341234", "male", "Borned in Ulsaan.")
         val post = mockk<Post>()
-        val book = Book("Sample Book", "Sample Content", "samplelink.com", authorInfo, 1, post)
+        val book = Book("Sample Book", "Sample Content", "samplelink.com", authorInfo, post)
 
         When("getting the book properties") {
             Then("the properties should match the values set during creation") {
@@ -18,7 +18,6 @@ class BookTest : BehaviorSpec({
                 book.content shouldBe "Sample Content"
                 book.link shouldBe "samplelink.com"
                 book.authorInfo shouldBe authorInfo
-                book.postId shouldBe 1
                 book.post shouldBe post
             }
         }
@@ -57,15 +56,6 @@ class BookTest : BehaviorSpec({
 
             Then("the author info should be updated") {
                 book.authorInfo shouldBe newAuthorInfo
-            }
-        }
-
-        When("setting a new post ID") {
-            val newPostId = 2
-            book.postId = newPostId.toLong()
-
-            Then("the post ID should be updated") {
-                book.postId shouldBe newPostId
             }
         }
 
