@@ -55,7 +55,7 @@ class SecurityConfig {
 
     fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration()
-        configuration.allowedOriginPatterns =
+        configuration.allowedOrigins =
             listOf(
                 "http://127.0.0.1:3000",
                 "http://localhost:3000",
